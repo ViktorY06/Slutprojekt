@@ -9,58 +9,91 @@ body{
 }
 
 header{
-   grid-area:header;
+   grid-area: header;
 }
 
 nav{
-    grid-area:nav;
+    grid-area: nav;
 }
 
 nav > ul{
-    display:flex;
-    flex-direction:column;
-    padding:0;
-    margin:0;
+    display: flex;
+    flex-direction: column; /*får navknapparna att ligga i höjdled*/
+    padding: 0;
+    margin: 0;
 }
 
 nav li{
-    display:grid;
-    justify-content:stretch;
-    text-align:center;
-    border:1px solid black;
-    height:40px;
+    display: grid;
+    text-align: center; /*placerar texten i mitten (sidled) inom flexboxen*/
+    align-items: center; /*placerar texten i mitten (höjdled) inom flexboxen*/
+    border: 1px solid black;
+    height: 40px;
 }
 
 nav a{
-   text-decoration:none;
+   text-decoration: none;
 }
 
 main{
-    grid-area:main;
+    grid-area: main;
 }
 
 footer{
-    grid-area:footer;
+    grid-area: footer;
 }
 
 img{
-    width:100%
+    width: 100%
 }
 
 table{
-    border-collapse:collapse;
-    width:100%;
+    border-collapse: collapse;
+    width: 100%;
+    vertical-align: middle;
 }
 
 th, td{
     border: 1px solid black;
-    padding: 0.5em;
+    padding: 0.7em;
+    vertical-align: top;
 }
 
-
+tbody > tr:nth-child(odd){
+    background-color: red;
+}
 
 @media (min-width:800px){
     body{
         background-color: aquamarine;
+        grid-template-columns: 20% 35% 45%;
+        grid-template-areas:
+        "header header header"
+        "nav nav nav"
+        "locnav main main"
+        ". footer .";
+    }
+
+    nav > ul{
+        flex-direction: row; /*placerar navknapparna på rad*/
+        justify-content: right; /*högerjusterar navmenyn*/
+    }
+
+    li{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    main{
+        display: grid;
+        grid-template-columns: 60% 40%; /*grid i main för bilder och sections*/
+    }
+
+    section, img{
+        grid-column: 1;
+    }
+
+    table{
+        grid-column: 2;
     }
 }
