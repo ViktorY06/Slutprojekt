@@ -2,10 +2,10 @@ body{
     display: grid;
     grid-template-rows: 80px auto auto 60px;
     grid-template-areas: 
-    "header"
-    "nav"
-    "main"
-    "footer";
+    "header nav"
+    "locnav locnav"
+    "main main"
+    "footer footer";
 }
 
 header{
@@ -18,11 +18,17 @@ nav{
     grid-area: nav;
 }
 
-nav > ul{
+nav:first-of-type{
+    margin-top: auto; /*placerar navmenyn i mitten i höjdled*/
+    margin-bottom: auto; /*placerar navmenyn i mitten i höjdled*/
+}
+
+nav ul{
     display: flex;
-    flex-direction: column; /*får navknapparna att ligga i höjdled*/
+    flex-direction: row; /*får navknapparna att ligga i höjdled*/
     padding: 0;
     margin: 0;
+    justify-content: right;
 }
 
 nav li{
@@ -35,6 +41,19 @@ nav li{
 
 nav a{
    text-decoration: none;
+}
+
+nav:last-of-type{
+    grid-area: locnav;
+}
+
+nav:last-of-type ul{
+    width: fit-content;
+}
+
+li{
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 main{
@@ -52,6 +71,11 @@ img{
 header img{
     height: 80px;
     width:80px;
+}
+
+iframe{
+    width:560px;
+    height:315px;
 }
 
 table{
@@ -75,20 +99,18 @@ tbody > tr:nth-child(odd){
         background-color: aquamarine;
         grid-template-columns: 20% 35% 45%;
         grid-template-areas:
-        "header header header"
-        "nav nav nav"
+        "header nav nav"
         "locnav main main"
         ". footer .";
     }
 
-    nav > ul{
-        flex-direction: row; /*placerar navknapparna på rad*/
-        justify-content: right; /*högerjusterar navmenyn*/
+    header{
+        position: fixed;
     }
-
-    li{
-        padding-left: 10px;
-        padding-right: 10px;
+    
+    nav:last-of-type ul{
+        flex-direction: column;
+        position: fixed;
     }
 
     main{
@@ -96,11 +118,12 @@ tbody > tr:nth-child(odd){
         grid-template-columns: 60% 40%; /*grid i main för bilder och sections*/
     }
 
-    section, img{
+    section, img, form{
         grid-column: 1;
     }
 
-    table{
+    table, .imgomoss, .imgpt, iframe{
         grid-column: 2;
+        grid-row: 1;
     }
 }
