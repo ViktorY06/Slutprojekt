@@ -10,6 +10,8 @@ body{
 
 header{
    grid-area: header;
+   display:flex;
+   flex-direction:row;
 }
 
 nav{
@@ -45,6 +47,11 @@ footer{
 
 img{
     width: 100%
+}
+
+header img{
+    height: 80px;
+    width:80px;
 }
 
 table{
