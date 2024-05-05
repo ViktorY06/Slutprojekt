@@ -7,14 +7,23 @@ body{
     "locnav locnav"
     "main main"
     "footer footer";
-    background-color: #DFD0B8;
+    background-color: #EEEEEE;
+    margin: 0;
+    color: #222831;
+}
+
+div{
+    position: fixed;
+    background-color: rgba(49, 54, 63, 1);
+    width: 100vw;
+    height: 80px;
     margin: 0;
 }
 
 header{
    grid-area: header;
-   display:flex;
-   flex-direction:row;
+   display: flex;
+   flex-direction: row;
    position: fixed;
    margin-left: 8px;
 }
@@ -23,41 +32,34 @@ nav{
     grid-area: nav;
 }
 
-div{
-    position: fixed;
-    background-color:aqua;
-    width: 100vw;
-    height:80px;
-    margin: 0;
-}
-
 nav:first-of-type{
     margin-top: auto; /*placerar navmenyn i mitten i höjdled*/
     margin-bottom: auto; /*placerar navmenyn i mitten i höjdled*/
+    margin-right: 8px;
     position: fixed;
     right: 0;
-    margin-right: 8px;
-    margin-top: 8px;
+}
+
+nav:first-of-type li:hover{
+    background-color: rgb(78, 90, 110);
 }
 
 nav ul{
     display: flex;
     flex-direction: row; /*får navknapparna att ligga i höjdled*/
-    padding: 0;
-    margin: 0;
     justify-content: right;
 }
 
 nav li{
     display: grid;
     text-align: center; /*placerar texten i mitten (sidled) inom flexboxen*/
-    align-items: center; /*placerar texten i mitten (höjdled) inom flexboxen*/
-    border: 1px solid black;
-    height: 40px;
+    height: 80px;
 }
 
 nav a{
-   text-decoration: none;
+    padding-left: 3ch;
+    padding-right: 3ch;
+    padding-top: 34px;
 }
 
 nav:last-of-type{
@@ -70,21 +72,43 @@ nav:last-of-type ul{
     width: fit-content;
 }
 
-li{
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
 main{
     grid-area: main;
+    margin: 8px;
 }
 
 footer{
     grid-area: footer;
+    text-align: center;
+}
+
+h1{
+    color: rgb(238, 238, 238);
+    font-size: 3rem;
+    margin-top: 12.5px;
+    margin-bottom: 12.5px;
+}
+
+a:link{
+    text-decoration: none;
+    color: #76ABAE;
+}
+
+a:visited{
+    color: hsl(183, 26%, 57%);
+}
+
+a:hover, a:focus{
+    color:#8adee2;
+}
+
+a:active{
+    color:#517577;
 }
 
 img{
-    width: 100%
+    width: 100%;
+    border-radius: 4ex;
 }
 
 header img{
@@ -92,9 +116,15 @@ header img{
     width:80px;
 }
 
+header a:hover{
+    transform: scale(1.05) /*förstorar loggan när man hovrar över den*/
+}
+
 iframe{
+    margin-top: 40px;
     width:560px;
     height:315px;
+    border-radius: 24px;
 }
 
 table{
@@ -111,6 +141,15 @@ th, td{
 
 tbody > tr:nth-child(odd){
     background-color: red;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+}
+
+li{
+    list-style-type: none;
 }
 
 @media (min-width:800px){
