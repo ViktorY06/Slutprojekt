@@ -1,26 +1,43 @@
 body{
     display: grid;
-    grid-template-rows: 80px auto auto 60px;
+    grid-template-rows: 80px 42px auto 60px;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: 
     "header nav"
     "locnav locnav"
     "main main"
     "footer footer";
+    background-color: #DFD0B8;
+    margin: 0;
 }
 
 header{
    grid-area: header;
    display:flex;
    flex-direction:row;
+   position: fixed;
+   margin-left: 8px;
 }
 
 nav{
     grid-area: nav;
 }
 
+div{
+    position: fixed;
+    background-color:aqua;
+    width: 100vw;
+    height:80px;
+    margin: 0;
+}
+
 nav:first-of-type{
     margin-top: auto; /*placerar navmenyn i mitten i höjdled*/
     margin-bottom: auto; /*placerar navmenyn i mitten i höjdled*/
+    position: fixed;
+    right: 0;
+    margin-right: 8px;
+    margin-top: 8px;
 }
 
 nav ul{
@@ -45,6 +62,8 @@ nav a{
 
 nav:last-of-type{
     grid-area: locnav;
+    position: fixed;
+    margin-top:80px
 }
 
 nav:last-of-type ul{
@@ -96,21 +115,17 @@ tbody > tr:nth-child(odd){
 
 @media (min-width:800px){
     body{
-        background-color: aquamarine;
         grid-template-columns: 20% 35% 45%;
+        grid-template-rows: 80px auto auto 60px;
         grid-template-areas:
         "header nav nav"
+        "locnav main main"
         "locnav main main"
         ". footer .";
     }
 
-    header{
-        position: fixed;
-    }
-    
     nav:last-of-type ul{
         flex-direction: column;
-        position: fixed;
     }
 
     main{
@@ -118,7 +133,7 @@ tbody > tr:nth-child(odd){
         grid-template-columns: 60% 40%; /*grid i main för bilder och sections*/
     }
 
-    section, img, form{
+    section, figure, form{
         grid-column: 1;
     }
 
