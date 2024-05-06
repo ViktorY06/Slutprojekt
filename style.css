@@ -1,6 +1,11 @@
+html{
+    scroll-padding-top: 80px; /*Gör så att headerbaren inte hamnar i vägen när man använder lokalmenyn för att scrolla*/
+}
+
 body{
-    display: grid;
-    grid-template-rows: 80px 42px auto 60px;
+    margin-top: 80px; /*Gör så att headerbaren inte hamnar i vägen när man använder lokalmenyn för att scrolla*/
+    display: grid; 
+    grid-template-rows: 80px 42px auto 60px; 
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
     "header nav"
@@ -10,10 +15,27 @@ body{
     background-color: #EEEEEE;
     margin: 0;
     color: #222831;
+    font-family: MuktaVaani;
+    min-height: 101vh; /*För att scrollbaren alltid ska finnas så att sidan inte skiftar i sidled vid klick mellan olika sidor*/
 }
 
-div{
-    position: fixed;
+@font-face{ /*Nedladdningsbar font*/
+    font-family: Signika;
+    src: url(fonts/Signika-Regular.ttf);
+}
+
+@font-face{ /*Nedladdningsbar font*/
+    font-family: Taviraj;
+    src: url(fonts/Taviraj-Regular.ttf);
+}
+
+@font-face{ /*Nedladdningsbar font*/
+    font-family: MuktaVaani;
+    src: url(fonts/MuktaVaani-Regular.ttf);
+}
+
+div{ /*Div för att kunna ge en bakgrundsfärg till hela headerbaren, när nav och header var fixed fungerade inte gridden som den skulle så gick inte att ge en bakgrundsfärg då.*/
+    position: fixed; /*Fäster headerbaren så att den inte försvinner vid scrollning*/
     background-color: rgba(49, 54, 63, 1);
     width: 100vw;
     height: 80px;
@@ -22,14 +44,14 @@ div{
 
 header{
    grid-area: header;
-   display: flex;
-   flex-direction: row;
-   position: fixed;
-   margin-left: 8px;
+   display: flex; /*Flexbox på header*/
+   flex-direction: row; /*Placerar objekten i headern på samma rad*/
+   position: fixed; /*Fäster headerbaren så att den inte försvinner vid scrollning*/
+   margin-left: 8px; /*Ger lite utrymme till vänsterkanten från headern*/
 }
 
 nav{
-    grid-area: nav;
+    grid-area: nav; 
 }
 
 nav:first-of-type{
@@ -41,56 +63,57 @@ nav:first-of-type{
 }
 
 nav:first-of-type li:hover{
-    background-color: rgb(78, 90, 110);
+    background-color: rgb(78, 90, 110); /*Ändrar bakgrundsfärgen på knappen vid hover av den globala navmeny*/
 }
 
 nav ul{
     display: flex;
     flex-direction: row; /*får navknapparna att ligga i höjdled*/
-    justify-content: right;
 }
 
 nav li{
     display: grid;
     text-align: center; /*placerar texten i mitten (sidled) inom flexboxen*/
-    height: 80px;
+    height: 80px; /*Höjden på boxarna inom nav*/
 }
 
 nav a{
-    padding-left: 3ch;
-    padding-right: 3ch;
-    padding-top: 34px;
+    padding-left: 3ch; /*Padding för att göra navboxen lite större än texten*/
+    padding-right: 3ch; /*Padding för att göra navboxen lite större än texten*/
+    padding-top: 30px; /*Padding för att göra navboxen lite större än texten*/
 }
 
-nav:last-of-type{
+nav:nth-child(2){
     grid-area: locnav;
     position: fixed;
-    margin-top:80px
-}
-
-nav:last-of-type ul{
-    width: fit-content;
+    margin-top: 80px;
 }
 
 main{
     grid-area: main;
-    margin: 8px;
+    margin: 8px; /*Margin i main åt alla håll för att innehållet inte ska hamna precis vid kanten*/
 }
 
 footer{
     grid-area: footer;
-    text-align: center;
+    text-align: center; 
+    background-image: linear-gradient(#EEEEEE, #222831); /*Skapar en gradient i footern som bakgrund*/
 }
 
 h1{
     color: rgb(238, 238, 238);
-    font-size: 3rem;
-    margin-top: 12.5px;
-    margin-bottom: 12.5px;
+    font-size: 3rem; /*Gör huvudrubriken lite större*/
+    margin-top: 12.5px; /*Placerar huvudrubriken i mitten*/
+    margin-bottom: 12.5px; /*Placerar huvudrubriken i mitten*/
+    font-family: Signika; /*Font huvudrubrik*/
+}
+
+h2{
+    font-family: Taviraj; /*Font underrubrik*/
 }
 
 a:link{
-    text-decoration: none;
+    text-decoration: none; /*Tar bort linjen under länkar*/
     color: #76ABAE;
 }
 
@@ -107,52 +130,50 @@ a:active{
 }
 
 img{
-    width: 100%;
-    border-radius: 4ex;
+    width: 100%; /*Gör att bilderna ej hamnar utanför sina bestämda områden*/
+    border-radius: 4ex; /*Runda hörn*/
 }
 
 header img{
-    height: 80px;
-    width:80px;
+    height: 80px; /*Loggans storlek*/
+    width: 80px; /*Loggans storlek*/
 }
 
 header a:hover{
-    transform: scale(1.05) /*förstorar loggan när man hovrar över den*/
+    transform: scale(1.05); /*förstorar loggan när man hovrar över den*/
 }
 
 iframe{
     margin-top: 40px;
-    width:560px;
-    height:315px;
-    border-radius: 24px;
+    width: 560px; /*Bredd för iFrame video*/
+    height: 315px; /*Höjd för iFrame video*/
+    border-radius: 24px; /*Runda hörn*/
+}
+
+option, select, input{
+    font-family: MuktaVaani; /*Font på option, select och input i formuläret*/
 }
 
 table{
-    border-collapse: collapse;
-    width: 100%;
-    vertical-align: middle;
+    border-collapse: collapse; /*Tar bort mellanrum i tabellen*/
+    width: 100%; /*Gör så att tabellen inte blir bredare än det bestämda området*/
 }
 
 th, td{
     border: 1px solid black;
-    padding: 0.7em;
-    vertical-align: top;
+    padding: 0.7em; /*Gör tabellrutorna lite större */
 }
 
 tbody > tr:nth-child(odd){
-    background-color: red;
+    background-color: #b4b4b4; /*Zebra striping i tabellen*/
 }
 
 ul{
-    padding: 0;
-    margin: 0;
+    padding: 0; /*Padding i ul 0*/
+    margin: 0; /*Margin i ul 0*/
 }
 
-li{
-    list-style-type: none;
-}
-
-@media (min-width:800px){
+@media (min-width:800px){ /*Regler för skärmar som är större än 800 pixlar*/
     body{
         grid-template-columns: 20% 35% 45%;
         grid-template-rows: 80px auto auto 60px;
@@ -160,24 +181,24 @@ li{
         "header nav nav"
         "locnav main main"
         "locnav main main"
-        ". footer .";
+        "footer footer footer";
     }
 
-    nav:last-of-type ul{
-        flex-direction: column;
+    nav:nth-child(2) ul{
+        flex-direction: column; /*Lokal menyn hamnar i höjdled istället för bredd*/
     }
 
     main{
-        display: grid;
+        display: grid; /*Delar main i 2 delar*/
         grid-template-columns: 60% 40%; /*grid i main för bilder och sections*/
     }
 
     section, figure, form{
-        grid-column: 1;
+        grid-column: 1; /*Placerar section , figure och form i vänsterdelen*/
     }
 
     table, .imgomoss, .imgpt, iframe{
-        grid-column: 2;
+        grid-column: 2; /*Placerar table , om oss bild, pt bild och iFrame i högerdelen*/
         grid-row: 1;
     }
 }

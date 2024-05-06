@@ -10,7 +10,7 @@
         <div></div> <!--För att kunna ge samma färg i headern och naven även fast de har position: fixed-->
         <header>
             <h1>Swegym</h1>
-            <a href="index.html"><img src="bilder/logga.png" alt="logga"></a>
+            <a href="index.html"><img src="bilder/logga.png" alt="logga"></a> <!--Gör loggan till en länk till index-->
         </header>
         <nav>
             <ul>
@@ -27,7 +27,7 @@
         </nav>
         <main>
             <section id="div1"><h2>Personlig tränare?</h2><p>Känner du ett behov av lite extra hjälp för att komma igång eller vill du ha ett mer individanpassat träningsprogram utformat efter dina mål? <br><br> I båda fallen kan vår online PT hjälpa dig att lyckas! Vi erbjuder ett kostnadsfritt möte med vår PT för att komma fram till om det är rätt val för dig. Fyll i formuläret nedan så återkommer vi inom kort. Vi hörs!</p></section>
-            <form id="div2" action="tack.html" method="post">
+            <form id="div2" action="tack.html" method="get"> <!--Byta method till post när hemsidan är uppladdad på servern-->
                 <fieldset>
                     <legend>Kontaktuppgifter</legend>
                     <label for="fname">Förnamn</label>
@@ -54,26 +54,26 @@
                 <fieldset>
                     <legend>Har du gymmat innan?</legend>
                     <label for="yes">Ja</label>
-                    <input type="radio" id="yes" name="rabattkupong" value="yes"><br>
+                    <input type="radio" id="yes" name="gyminnan" value="yes"><br>
                     <label for="no">Nej</label>
-                    <input type="radio" id="no" name="rabattkupong" value="no" checked>
+                    <input type="radio" id="no" name="gyminnan" value="no" checked>
                 </fieldset>
                 <fieldset>
                     <legend>Vilken utrustning har du tillgång till?</legend>
                     <label for="barbell">Skivstång</label>
-                    <input type="checkbox" id="barbell" name="utrustning"><br>
+                    <input type="checkbox" id="barbell" name="barbell"><br>
                     <label for="dumbbell">Hantel</label>
-                    <input type="checkbox" id="dumbbell" name="utrustning"><br>
+                    <input type="checkbox" id="dumbbell" name="dumbbell"><br>
                     <label for="band">Gummiband</label>
-                    <input type="checkbox" id="band" name="utrustning"><br>
+                    <input type="checkbox" id="band" name="band"><br>
                     <label for="machine">Maskiner</label>
-                    <input type="checkbox" id="machine" name="utrustning">
+                    <input type="checkbox" id="machine" name="machine">
                 </fieldset>
                 <label for="kommentar">Övriga kommentarer:</label><br>
                 <textarea id="kommentar" name="kommentar" rows="5" cols="50" placeholder="Övrig information som vi kan tänkas behöva veta"></textarea><br>
                 <input type="submit" id="submit">
             </form> 
-            <figure class="imgpt"><img src="bilder/personligtranare-2.jpg" alt="personligtranare-2"></figure>
+            <figure class="imgpt"><img src="bilder/personligtranare-2.jpg" alt="personligtranare-2"></figure> <!--Class för att kunna placera just denna bilden till höger-->
         </main>
         <footer>
             <p>©Swegym 2024</p>
