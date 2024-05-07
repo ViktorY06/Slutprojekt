@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div></div> <!--För att kunna ge samma färg i headern och naven även fast de har position: fixed-->
+        <div class="headerdesign"></div> <!--För att kunna ge samma färg i headern och naven även fast de har position: fixed-->
         <header>
             <h1>Swegym</h1>
             <a href="index.html"><img src="bilder/logga.png" alt="logga"></a> <!--Gör loggan till en länk till index-->
@@ -27,9 +27,18 @@
             </ul>
         </nav>    
         <main>
-            <section id="div1"><h2>3 ggr i veckan på gymmet</h2><p>Detta är en rutin som är tänkt att utföras 3 gånger i veckan. Den använder, som alla våra andra rutiner, övningar som tränar många muskler samtidigt vilket ger bättre resultat för mindre arbete. För att musklerna ska växa krävs ett träningsprogram som ökar i intensitet, en proteinrik kost och rätt mängd vila. Är du reda att påbörja din resa mot ett hälsosammare liv? <br><br>Programmet är gjort för att göras 3 gånger i veckan. Tanken är att man ska alternera mellan pass 1 och 2 varannat träningstillfälle för att få så varierad träning som möjligt. De 6 olika övningarna är basövningar som använder utrustning som är vanlig på nästan alla gym men skulle något saknas så går det att byta ut övningen mot ett liknande alternativ. <br><br> Men hur gör man för att hela tiden öka intensiteten då? Antingen så kan man öka antalet sets, reps eller vikten man lyfter, men här ska vi fokusera på de två sista. I programmet står repsen ex 5-8. Detta innebär att man ska köra mellan 5 och 8 repetitioner på den övningen. Klarar man inte den övre gränsen på alla sets så kör man samma vikt nästa gång och försöker klara fler då. När man klarar den övre gränsen på alla 3 setsen så ska man öka i vikt, vanligtvis med 2,5kg.<br><br>Vilotiden mellan setsen är också väldigt viktig för att kunna fokusera och maximera arbetet i varje set. Sätt därför en timer för att se till att du inte vilar kortare än vad det står i programmet.</p></section>
-            <wrapper id="div2"> <!--Så att båda tabellerna hamnar i samma gridruta-->
-                <table>
+            <div>
+                <article id="div1"><h2>3 ggr i veckan på gymmet</h2><p>Detta är en rutin som är tänkt att utföras 3 gånger i veckan. Den använder, som alla våra andra rutiner, övningar som tränar många muskler samtidigt vilket ger bättre resultat för mindre arbete. För att musklerna ska växa krävs ett träningsprogram som ökar i intensitet, en proteinrik kost och rätt mängd vila. Är du reda att påbörja din resa mot ett hälsosammare liv? <br><br>Programmet är gjort för att göras 3 gånger i veckan. Tanken är att man ska alternera mellan pass 1 och 2 varannat träningstillfälle för att få så varierad träning som möjligt. De 6 olika övningarna är basövningar som använder utrustning som är vanlig på nästan alla gym men skulle något saknas så går det att byta ut övningen mot ett liknande alternativ. <br><br> Men hur gör man för att hela tiden öka intensiteten då? Antingen så kan man öka antalet sets, reps eller vikten man lyfter, men här ska vi fokusera på de två sista. I programmet står repsen ex 5-8. Detta innebär att man ska köra mellan 5 och 8 repetitioner på den övningen. Klarar man inte den övre gränsen på alla sets så kör man samma vikt nästa gång och försöker klara fler då. När man klarar den övre gränsen på alla 3 setsen så ska man öka i vikt, vanligtvis med 2,5kg.<br><br>Vilotiden mellan setsen är också väldigt viktig för att kunna fokusera och maximera arbetet i varje set. Sätt därför en timer för att se till att du inte vilar kortare än vad det står i programmet.</p></article>
+                <section>
+                    <h3>Ordlista</h3>
+                    <dl>
+                        <dt>Reps:</dt> <dd>Antalet repetitioner</dd>
+                        <dt>Sets:</dt> <dd>Antalet omgångar</dd>
+                    </dl>
+                </section>
+            </div>
+            <div> <!--Så att båda tabellerna hamnar i samma gridruta-->
+                <table id="div2">
                     <caption>Pass 1</caption>
                     <thead>
                         <tr>
@@ -49,7 +58,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th scope="row">Anteckningar</td> <td>Försök öka reps eller vikt varje gång</td> <td>Glöm ej vila</td>
+                            <th scope="row">Anteckningar</th> <td>Försök öka reps eller vikt varje gång</td> <td>Glöm ej vila</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -78,7 +87,7 @@
                         </tr>
                     </tfoot>
                 </table>
-            </wrapper>
+            </div>
             <h2 id="div3">Övningar beskrivning</h2>
             <section><h3>Squat</h3><ol><li>Gå in under skivstången och lägg den på axlarna</li><li>Ta 2 steg bak och ta sedan ett djupt andetag</li><li>Böj på benen tills låren är paralella med golvet<li>Pressa upp till stående igen</li></ol></section>
             <section><h3>Bänkpress</h3><ol><li>Lägg dig på bänken med ögonen rakt under stången</li><li>Ta tag i stången hårt och håll den ovanför axlarna</li><li>Böj på armarna tills stången nuddar bröstet och pressa sedan upp igen</li></ol></section>

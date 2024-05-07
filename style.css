@@ -34,24 +34,40 @@ body{
     src: url(fonts/MuktaVaani-Regular.ttf);
 }
 
-div{ /*Div för att kunna ge en bakgrundsfärg till hela headerbaren, när nav och header var fixed fungerade inte gridden som den skulle så gick inte att ge en bakgrundsfärg då.*/
+.headerdesign{ /*Div för att kunna ge en bakgrundsfärg till hela headerbaren, när nav och header var fixed fungerade inte gridden som den skulle så gick inte att ge en bakgrundsfärg då.*/
     position: fixed; /*Fäster headerbaren så att den inte försvinner vid scrollning*/
     background-color: rgba(49, 54, 63, 1);
     width: 100vw;
     height: 80px;
     margin: 0;
+    z-index: 2; /*Gör att headerbaren hamnar ovanför audio controllen*/
 }
 
 header{
-   grid-area: header;
-   display: flex; /*Flexbox på header*/
-   flex-direction: row; /*Placerar objekten i headern på samma rad*/
-   position: fixed; /*Fäster headerbaren så att den inte försvinner vid scrollning*/
-   margin-left: 8px; /*Ger lite utrymme till vänsterkanten från headern*/
+    grid-area: header;
+    display: flex; /*Flexbox på header*/
+    flex-direction: row; /*Placerar objekten i headern på samma rad*/
+    position: fixed; /*Fäster headerbaren så att den inte försvinner vid scrollning*/
+    margin-left: 8px; /*Ger lite utrymme till vänsterkanten från headern*/
+    z-index: 3; /*Gör att headerbaren hamnar ovanför audio controllen*/
+}
+
+header img{
+    height: 80px; /*Loggans storlek*/
+    width: 80px; /*Loggans storlek*/
+}
+
+header a{
+    transition: 0.5s;
+}
+
+header a:hover{
+    transform: scale(1.05); /*förstorar loggan när man hovrar över den*/
 }
 
 nav{
     grid-area: nav; 
+    z-index: 3; /*Gör att headerbaren hamnar ovanför audio controllen*/
 }
 
 nav:first-of-type{
@@ -60,6 +76,10 @@ nav:first-of-type{
     margin-right: 8px;
     position: fixed;
     right: 0;
+}
+
+nav:first-of-type li{
+    transition: 0.7s;
 }
 
 nav:first-of-type li:hover{
@@ -83,10 +103,21 @@ nav a{
     padding-top: 30px; /*Padding för att göra navboxen lite större än texten*/
 }
 
-nav:nth-child(2){
+nav + nav{ /*syskonselektor för att globala naven inte ska hamna fel på tacksidan, blev fel med last-of-type som jag använde innan*/
     grid-area: locnav;
     position: fixed;
-    margin-top: 80px;
+    margin-top: 90px;
+}
+
+nav + nav li{
+    background-color:rgba(49, 54, 63, 0.822);
+    border-radius: 24px;
+    height: 35px;
+    margin: 5px;
+}
+
+nav + nav a{
+    padding-top: 4px;
 }
 
 main{
@@ -100,6 +131,10 @@ footer{
     background-image: linear-gradient(#EEEEEE, #222831); /*Skapar en gradient i footern som bakgrund*/
 }
 
+section, article{
+    margin: 8px;
+}
+
 h1{
     color: rgb(238, 238, 238);
     font-size: 3rem; /*Gör huvudrubriken lite större*/
@@ -108,13 +143,23 @@ h1{
     font-family: Signika; /*Font huvudrubrik*/
 }
 
+h1::first-letter{
+    color:hsl(183, 26%, 57%);
+}
+
 h2{
     font-family: Taviraj; /*Font underrubrik*/
 }
 
+h2::before{ /*Lägger till en "/" innan h2 titlarna*/
+    content: "/";
+    margin-right: 5px;
+    color: hsl(183, 26%, 57%);
+}
+
 a:link{
     text-decoration: none; /*Tar bort linjen under länkar*/
-    color: #76ABAE;
+    color: #a8fbff;
 }
 
 a:visited{
@@ -134,24 +179,16 @@ img{
     border-radius: 4ex; /*Runda hörn*/
 }
 
-header img{
-    height: 80px; /*Loggans storlek*/
-    width: 80px; /*Loggans storlek*/
-}
-
-header a:hover{
-    transform: scale(1.05); /*förstorar loggan när man hovrar över den*/
-}
-
 iframe{
     margin-top: 40px;
-    width: 560px; /*Bredd för iFrame video*/
-    height: 315px; /*Höjd för iFrame video*/
+    width: 100%; /*Bredd för iFrame video*/
+    aspect-ratio: 16 / 9; /*Ger videon korrekt skala*/
     border-radius: 24px; /*Runda hörn*/
+    border: 0;
 }
 
-option, select, input{
-    font-family: MuktaVaani; /*Font på option, select och input i formuläret*/
+audio{
+    z-index: 1; /*Gör att headerbaren hamnar ovanför audio controllen*/
 }
 
 table{
@@ -171,6 +208,28 @@ tbody > tr:nth-child(odd){
 ul{
     padding: 0; /*Padding i ul 0*/
     margin: 0; /*Margin i ul 0*/
+    list-style-type: none;
+}
+
+option, select, input{
+    font-family: MuktaVaani; /*Font på option, select och input i formuläret*/
+}
+
+input:invalid{
+    border: solid rgba(255, 0, 0, 0.5) 2px;
+}
+
+input:valid{
+    border: solid rgba(0, 255, 0, 0.5) 2px;
+}
+
+input:checked{
+    outline: solid rgba(255, 0, 255, 0.5) 2px;
+    border: none;
+}
+
+input:enabled{
+    background-color: rgba(255, 255, 0, 0.11);
 }
 
 @media (min-width:800px){ /*Regler för skärmar som är större än 800 pixlar*/
@@ -184,7 +243,7 @@ ul{
         "footer footer footer";
     }
 
-    nav:nth-child(2) ul{
+    nav + nav ul{ /*syskonselektor för att globala naven inte ska hamna fel på tacksidan, blev fel med last-of-type som jag använde innan*/
         flex-direction: column; /*Lokal menyn hamnar i höjdled istället för bredd*/
     }
 
@@ -193,12 +252,30 @@ ul{
         grid-template-columns: 60% 40%; /*grid i main för bilder och sections*/
     }
 
-    section, figure, form{
+    section, article, figure, form{
         grid-column: 1; /*Placerar section , figure och form i vänsterdelen*/
     }
 
-    table, .imgomoss, .imgpt, iframe{
+    .table, .imgomoss, .imgpt, iframe{
         grid-column: 2; /*Placerar table , om oss bild, pt bild och iFrame i högerdelen*/
         grid-row: 1;
+    }
+}
+
+@media (max-width:700px){  /*För att navbaren inte ska pressas ihop och hamna över headern*/
+    main{ /*gör så att lokal nav ej överlappar main i början*/
+        margin-top: 130px;
+    }
+    
+    nav ul{
+        flex-direction: column;
+    }
+
+    nav:first-of-type a{
+        padding: 0;
+    }
+
+    nav li{
+        height: auto;
     }
 }
