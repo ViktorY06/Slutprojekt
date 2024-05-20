@@ -159,7 +159,7 @@ h2::before{ /*Lägger till en "/" innan h2 titlarna*/
 
 a:link{
     text-decoration: none; /*Tar bort linjen under länkar*/
-    color: #a8fbff;
+    color: hsl(183, 26%, 57%);
 }
 
 a:visited{
